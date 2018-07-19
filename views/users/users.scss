@@ -1,4 +1,4 @@
-.signup-view {
+.users-view {
   width: 320px;
   height: 500px;
   border: 1px solid grey;
@@ -6,10 +6,9 @@
   display: inline-block;
   vertical-align: top;
 
-  .signup-view__name,
-  .signup-view__pwd,
-  .signup-view__pwd-repeat,
-  .button {
-    margin: 20px;
+
+  .users-view__a {
+    margin: 0;
+    background-color: #dcedff;
   }
 }

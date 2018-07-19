@@ -15,18 +15,24 @@ export default class Button extends Block {
      * @param {string} [obj.type]
      */
 
-    constructor({ text, style='button__classic', type='button' }) {
+    constructor({ text, style='button__default', type='button' }) {
 
         super();
 
         this.el.classList.toggle('button');
+
         this.el.innerHTML = template({
-            text:text,
-            type:type,
-            style:style
+            text: text,
+            type: type,
+            style: style
         });
 
+        this.button = this.el.querySelector('button');
+        this.button.addEventListener('click', event => this.onClick(event));
 
+    }
+
+    onClick(event){
 
     }
 }

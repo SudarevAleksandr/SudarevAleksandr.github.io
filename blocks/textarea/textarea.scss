@@ -1,14 +1,21 @@
 .textarea {
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px #ddd;
-    border-radius: 4px;
-    vertical-align: middle;
-    box-sizing: border-box;
-    transition: border-color .35s ease-in-out;
-    font-size: 14px;
 
     &:focus {
-        border-color: #129FEA;
+        border-color: #0976c4;
     }
+    .item__wrap {
+        margin: 0 32px 0 0;
+        height: 100%;
+    }
+    .item__textarea {
+        border: 1px solid #434343;
+        text-align: start;
+        resize: none;
+        padding: 9px 15px;
+        border-radius: 3px;
+        outline: none;
+        width: 100%;
+        height: 100%;
+    }
+
 }

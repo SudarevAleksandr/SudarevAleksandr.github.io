@@ -5,7 +5,7 @@ import style from './input.scss';
 export default class Input extends Block {
 
     get name () {
-        return 'div';
+        return 'input';
     }
 
     /**
@@ -19,15 +19,12 @@ export default class Input extends Block {
 
         this.el.classList.toggle('input', true);
 
-        this.el.innerHTML = template({
-            placeholder: placeholder,
-            value: value,
-            type: type
-        });
+        this.el.placeholder=placeholder;
+        this.el.value=value;
+        this.el.type=type;
 
-        // TODO поправить по БЭМ
-        this.input = this.el.querySelector('input');
-        this.input.addEventListener('input', event => this.onInput(event));
+        this.el.addEventListener('input', event => this.onInput(event));
+
     }
 
     /**

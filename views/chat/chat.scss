@@ -1,0 +1,20 @@
+.chat-view {
+    width: 320px;
+    height: 500px;
+    border: 1px solid grey;
+    margin: 10px;
+    display: inline-block;
+    vertical-align: top;
+
+   .chat-view__messages{
+      padding: 20px;
+   }
+
+   .chat-view__textarea{
+      padding: 20px;
+   }
+  .chat-view__a {
+    margin: 0;
+    background-color: #dcedff;
+  }
+}

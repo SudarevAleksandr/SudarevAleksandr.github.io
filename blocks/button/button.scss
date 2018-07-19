@@ -1,20 +1,33 @@
 .button {
-    white-space: nowrap;
-    vertical-align: middle;
-    text-align: center;
-    cursor: pointer;
-    font-size: 100%;
-    padding: 8px 16px;
-    color: #fff;
-    border: none;
-    background-color: #0078e7;
-    text-decoration: none;
-    border-radius: 2px;
-    font-size: 14px;
-    transition: background-color .35s ease-in-out;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
 
-    &:hover {
-        background-color: #3D9DF3;
+    .item__button {
+        border: none;
+        outline: none;
+        width: 100%;
+        cursor: pointer;
+        white-space: nowrap;
+        vertical-align: middle;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color .35s ease-in-out;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
+    }
+    .button__default{
+        padding: 10px 20px;
+        background-color: #63b3ec;
+        color: white;
+        border-radius: 3px;
+    }
+    .button__href {
+        padding: 4px 20px;
+        background-color: transparent;
+        color: #63b3ec;
+    }
+    .button__default:hover{
+        background-color: #41a8f2;
+    }
+    .button__href:hover{
+        color: #278cd4;
     }
 }
+
