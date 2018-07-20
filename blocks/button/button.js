@@ -26,7 +26,5 @@ export default class Button extends Block {
             style:style
         });
 
-
-
     }
 }
