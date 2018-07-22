@@ -21,8 +21,8 @@ export default class List extends Block {
         let list='';
         for (let u of user){
             list+=template({
-                name: u.name,
-                id: u.id
+                name: u.login,
+                avatar: u.avatar
             });
         }
         this.el.innerHTML=list;

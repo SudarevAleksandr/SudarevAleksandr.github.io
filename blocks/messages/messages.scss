@@ -5,14 +5,14 @@
     height: 330px;
     width: 100%;
 
-    .item__scroll {
+    .messages__scroll {
         overflow: auto;
         height: 100%;
         position: absolute;
         right: -18px;
         padding: 0 2px 0 0;
     }
-    .item__wrap {
+    .messages__wrap {
         margin-bottom: 10px;
     }
     .sent {
@@ -23,26 +23,26 @@
         margin-right: 10%;
         text-align: left;
     }
-    .item__content {
+    .messages__content {
         display: inline-block;
         padding: 15px 25px;
         border-radius: 5px;
         text-align: left;
     }
-    .item__user {
+    .messages__user {
         margin: 0 0 9px 0;
         font-weight: 600;
         color: #505ca0;
     }
-    .item__time {
+    .messages__time {
         padding: 3px 0 0 14px;
         font-size: 13px;
         float: right;
     }
-    .received .item__content{
+    .received .messages__content{
         background-color: #ddf1ff;
     }
-    .sent .item__content{
+    .sent .messages__content{
         background-color: #b2d5ee;
     }
 }

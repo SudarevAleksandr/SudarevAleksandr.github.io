@@ -3,7 +3,8 @@ import Button from '../../blocks/button/button';
 import View from '../view';
 import style from './signup.scss';
 import template from './signup.pug';
-import A from "../../blocks/a/a";
+import Link from "../../blocks/link/link";
+import User from '../../models/user';
 
 export default class SignupView extends View {
 
@@ -34,34 +35,47 @@ export default class SignupView extends View {
             type: 'submit'
         });
 
-        this.a = new A({
+
+        this.link = new Link({
             text: 'Логин',
             href: '#login'
         });
 
-        let self = this;
-        this.button.onClick = function () {
-            let name = self.name.el;
-            let password = self.pwd.el;
-            let pwdRepeat =  self.pwdRepeat.el;
-            if (password.value !== pwdRepeat.value) {
-                pwdRepeat.style.borderColor = 'red';
-            } else {
-                if (!dataBase.db[name.value]) {
-                    dataBase.addUser(name.value, password.value);
-                    location.hash='#chat';
-                } else {
-                    if (dataBase.db[name.value] ===  password.value) location.hash='#chat';
-                }
-            }
-        };
+
+        this.user = new User();
+
 
         this
             .addBlock('name', this.name)
             .addBlock('pwd', this.pwd)
             .addBlock('pwd-repeat', this.pwdRepeat)
             .addBlock('submit', this.button)
-            .addBlock('a', this.a);
+            .addBlock('link', this.link);
+
+
+
+        this.el.querySelector('form').addEventListener('submit', event => {
+            event.preventDefault();
+
+            this.user.signup(
+                this.name.el.value,
+                this.pwd.el.value,
+                this.pwdRepeat.el.value
+            ).then(user => {
+                let result = JSON.parse(user);
+                location.hash = '#chat';
+                console.log(result.auth);
+                return this.user.getList(result.auth);
+            }).then(
+                list => {
+                    console.log(list);
+                }
+            ).catch(error => {
+                alert(error);
+            });
+
+        });
+
     }
 
 }

@@ -1,8 +1,8 @@
 import Block from '../block';
-import style from './a.scss';
-import template from './a.pug';
+import style from './link.scss';
+import template from './link.pug';
 
-export default class A extends Block {
+export default class Link extends Block {
 
     get name() {
         return 'a';
@@ -15,11 +15,12 @@ export default class A extends Block {
      * @param {string} [obj.type]
      */
 
-    constructor({ text, href='#' }) {
+    constructor({ text, href='#', modifier}) {
 
         super();
 
-        this.el.classList.toggle('a');
+        this.el.classList.toggle('link');
+        if (modifier) this.el.classList.add(modifier);
         this.el.innerHTML = text;
         this.el.href = href;
 

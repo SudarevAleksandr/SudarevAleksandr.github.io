@@ -4,7 +4,9 @@ import Button from '../../blocks/button/button';
 import View from '../view';
 import style from './login.scss';
 import template from './login.pug';
-import A from "../../blocks/a/a";
+import Link from "../../blocks/link/link";
+import User from "../../models/user";
+import List from "../../blocks/list/list";
 
 export default class LoginView extends View {
 
@@ -31,7 +33,7 @@ export default class LoginView extends View {
             console.log(value);
         };
 
-        this.a = new A({
+        this.link = new Link({
             text: 'Регистрация',
             href: '#signup'
         });
@@ -41,19 +43,39 @@ export default class LoginView extends View {
             type: 'submit'
         });
 
-        let self = this;
-        this.button.onClick = function () {
-            let name = self.name.el.value;
-            let password = self.pwd.el.value;
-            if (dataBase.db[name] ===  password) location.hash='#chat';
-        };
 
 
         this
             .addBlock('name', this.name)
             .addBlock('pwd', this.pwd)
             .addBlock('submit', this.button)
-            .addBlock('a', this.a);
+            .addBlock('link', this.link)
+
+
+        this.user = new User();
+
+        this.el.querySelector('form').addEventListener('submit', event => {
+            event.preventDefault();
+
+            this.user.login(
+                this.name.el.value,
+                this.pwd.el.value
+            ).then(user => {
+                let result = JSON.parse(user);
+                location.hash = '#chat';
+                return this.user.getList(result.auth);
+            }).then(list => {
+                let result = JSON.parse(list);
+                let ul = new List({
+                    user: result
+                });
+                (document.querySelector('.users-view__list')).appendChild(ul.el);
+               }).catch(error => {
+                alert(error);
+            });
+
+        });
+
     }
 
 }

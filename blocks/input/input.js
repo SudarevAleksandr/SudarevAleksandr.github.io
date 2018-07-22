@@ -34,4 +34,8 @@ export default class Input extends Block {
 
     }
 
+    getValue() {
+        return this.input.value;
+    }
+
 }

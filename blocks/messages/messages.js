@@ -20,7 +20,7 @@ export default class Messages extends Block {
         super();
         let list='';
         let scrollDiv=document.createElement('div');
-        scrollDiv.classList.toggle('item__scroll');
+        scrollDiv.classList.toggle('messages__scroll');
         for (let m of message) {
             list+= template({
                 user: m.user,

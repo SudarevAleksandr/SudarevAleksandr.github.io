@@ -5,7 +5,7 @@ import template from './button.pug';
 export default class Button extends Block {
 
     get name() {
-        return 'div';
+        return 'button';
     }
 
     /**
@@ -21,18 +21,15 @@ export default class Button extends Block {
 
         this.el.classList.toggle('button');
 
-        this.el.innerHTML = template({
-            text: text,
-            type: type,
-            style: style
-        });
+        this.el.innerHTML = text;
+        this.el.type = type;
+        this.el.classList.add(style);
 
-        this.button = this.el.querySelector('button');
-        this.button.addEventListener('click', event => this.onClick(event));
+
+        this.el.addEventListener('click', event => this.onClick(event));
 
     }
 
     onClick(event){
-
     }
 }

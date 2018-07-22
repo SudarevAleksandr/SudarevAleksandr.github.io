@@ -3,7 +3,7 @@ import Button from '../../blocks/button/button';
 import View from '../view';
 import style from './users.scss';
 import template from './users.pug';
-import A from "../../blocks/a/a";
+import Link from "../../blocks/link/link";
 
 export default class UsersView extends View {
 
@@ -15,23 +15,15 @@ export default class UsersView extends View {
         super({el});
         this.render(template);
 
-        this.list = new List({
-            user:[
-                {name: 'Света Иванова', id: 1},
-                {name: 'Коля Петров', id: 2},
-                {name: 'Вася Сидоров', id: 3},
-                {name: 'Маша Лебедев', id: 4}
-            ]
-        });
 
-        this.a = new A({
+        this.link = new Link({
             text: 'Чат ',
-            href: '#chat'
+            href: '#chat',
+            modifier: 'link__header'
         });
 
         this
-            .addBlock('list', this.list)
-            .addBlock('a', this.a)
+            .addBlock('link', this.link)
     }
 
 }

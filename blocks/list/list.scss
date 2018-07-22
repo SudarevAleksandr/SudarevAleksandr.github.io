@@ -2,11 +2,11 @@
     padding: 0 20px;
     list-style-type: none;
 
-    .item__user {
+    .list__user {
         margin: 0 0 5px 0;
         cursor: pointer;
     }
-    .item__avatar {
+    .list__avatar {
         display: inline-block;
         width: 44px;
         height: 44px;
@@ -15,12 +15,12 @@
         border-radius: 30px;
         overflow: hidden;
     }
-    .item__avatar img {
-        max-width: 150%;
-        max-height: 150%;
+    .list__avatar img {
+        max-width: 105%;
+        max-height: 105%;
         vertical-align: middle;
     }
-    .item__name {
+    .list__name {
         line-height: 42px;
         vertical-align: top;
         padding: 0 0 0 20px;

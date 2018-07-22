@@ -5,10 +5,8 @@
   margin: 10px;
   display: inline-block;
   vertical-align: top;
-
-
-  .users-view__a {
-    margin: 0;
-    background-color: #dcedff;
-  }
+}
+.users-view__list{
+  height: 443px;
+  overflow: auto;
 }

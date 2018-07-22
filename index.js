@@ -1,6 +1,4 @@
 import Router from './modules/router';
-import DataBase from './modules/dataBase';
-
 
 import LoginView from './views/login/login';
 import SignupView from './views/signup/signup';
@@ -28,7 +26,7 @@ window.addEventListener('DOMContentLoaded', function () {
         el: document.querySelector('.view-container.js-users')
     });
 
-    window.dataBase = new DataBase();
+
 
     router
         .route('login', loginView)

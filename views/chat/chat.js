@@ -1,6 +1,6 @@
 import Messages from '../../blocks/messages/messages';
 import Textarea from '../../blocks/textarea/textarea';
-import A from '../../blocks/a/a';
+import Link from '../../blocks/link/link';
 import View from '../view';
 import style from './chat.scss';
 import template from './chat.pug';
@@ -56,15 +56,16 @@ export default class ChatView extends View {
             placeholder: 'Начните набирать сообщение'
         });
 
-        this.a = new A({
+        this.link = new Link({
             text: 'Контакты',
-            href: '#users'
+            href: '#users',
+            modifier: 'link__header'
         });
 
         this
             .addBlock('messages', this.messages)
             .addBlock('textarea', this.textarea)
-            .addBlock('a', this.a)
+            .addBlock('link', this.link)
 
     }
 
