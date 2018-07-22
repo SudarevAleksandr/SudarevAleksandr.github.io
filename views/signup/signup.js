@@ -5,6 +5,7 @@ import style from './signup.scss';
 import template from './signup.pug';
 import Link from "../../blocks/link/link";
 import User from '../../models/user';
+import List from "../../blocks/list/list";
 
 export default class SignupView extends View {
 
@@ -66,11 +67,13 @@ export default class SignupView extends View {
                 location.hash = '#chat';
                 console.log(result.auth);
                 return this.user.getList(result.auth);
-            }).then(
-                list => {
-                    console.log(list);
-                }
-            ).catch(error => {
+            }).then(list => {
+                let result = JSON.parse(list);
+                let ul = new List({
+                    user: result
+                });
+                (document.querySelector('.users-view__list')).appendChild(ul.el);
+            }).catch(error => {
                 alert(error);
             });
 

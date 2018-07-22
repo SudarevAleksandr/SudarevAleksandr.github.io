@@ -70,7 +70,7 @@ export default class LoginView extends View {
                     user: result
                 });
                 (document.querySelector('.users-view__list')).appendChild(ul.el);
-               }).catch(error => {
+            }).catch(error => {
                 alert(error);
             });
 
